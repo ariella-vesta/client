@@ -1,28 +1,16 @@
+
 import React from 'react';
 import BrandingSettings from './settings/BrandingSettings';
 import VendorListSettings from './settings/VendorListSettings';
 import EmailTemplatesSettings from './settings/EmailTemplatesSettings';
 import { ArrowLeftIcon } from './ui/icons/ArrowLeftIcon';
 import LockboxSettings from './settings/LockboxSettings';
-import { InvitationTemplates, ListingPaperworkTemplate } from '../types';
-import InvitationTemplateSettings from './settings/InvitationTemplateSettings';
-import ListingPaperworkSettings from './settings/ListingPaperworkSettings';
 
 interface SettingsPageProps {
   setView: (view: 'admin' | 'client' | 'settings') => void;
-  invitationTemplates: InvitationTemplates;
-  onUpdateInvitationTemplates: (templates: InvitationTemplates) => void;
-  masterPaperwork: ListingPaperworkTemplate[];
-  onUpdateMasterPaperwork: (templates: ListingPaperworkTemplate[]) => void;
 }
 
-const SettingsPage: React.FC<SettingsPageProps> = ({ 
-  setView, 
-  invitationTemplates, 
-  onUpdateInvitationTemplates,
-  masterPaperwork,
-  onUpdateMasterPaperwork
-}) => {
+const SettingsPage: React.FC<SettingsPageProps> = ({ setView }) => {
   return (
     <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <div className="mb-6">
@@ -41,14 +29,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
         <BrandingSettings />
         <VendorListSettings />
         <LockboxSettings />
-        <ListingPaperworkSettings 
-          templates={masterPaperwork}
-          onUpdate={onUpdateMasterPaperwork}
-        />
-        <InvitationTemplateSettings 
-          templates={invitationTemplates}
-          onUpdate={onUpdateInvitationTemplates}
-        />
         <EmailTemplatesSettings />
       </div>
     </div>
